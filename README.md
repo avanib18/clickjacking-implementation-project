@@ -1,3 +1,3 @@
 This is to be used for educational purposes only.
 This project implements clickjacking on http://zero.webappsecurity.com, which is a fake vulnerable website, designed to perform on and learn ethical hacking. The end user receives a phishing email containing link to this clickjacking website, which downloads a potentially suspicious file (in this case, the user has to click on the runme.bat file to print a message, but the area can be improvised and is still under development) as soon as the website loads. Additionally, if the user enters credentials to log in, the attacker immediately gets them (the email contains urgency to change credentials).
-It has been implemented for a project, and will be continually improvising it as much as possible.
+Will be improvising it as much as possible.
